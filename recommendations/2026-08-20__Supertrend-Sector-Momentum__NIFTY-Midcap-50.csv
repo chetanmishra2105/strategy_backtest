@@ -1,0 +1,4 @@
+signal_date,symbol,recommendation,score,side,entry,stop_loss,sl_%,target1,target2,target3,t1_%,R:R(T1),probable_hold_days,max_hold_days,RSI14,ADX14,MACD>Signal,Close>EMA50,Close>EMA200,Supertrend,vol_ratio
+2026-08-20,DIXON.NS,BUY,68.1,long,14894.55,14305.28,-3.96,16073.08,16662.35,17251.61,7.91,2.0,16.0,30,67.7,25.1,False,True,True,up,1.81
+2026-08-13,CONCOR.NS,BUY,57.5,long,535.25,515.02,-3.78,575.71,595.95,616.18,7.56,2.0,16.0,30,66.1,22.5,True,True,True,up,1.95
+2026-08-07,AUROPHARMA.NS,BUY,55.4,long,1662.97,1595.63,-4.05,1797.65,1864.99,1932.34,8.1,2.0,16.0,30,64.6,27.7,True,True,True,up,2.1
