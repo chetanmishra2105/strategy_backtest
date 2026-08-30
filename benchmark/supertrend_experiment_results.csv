@@ -1,0 +1,97 @@
+universe,interval,bracket,preset,gates,fundamental_leak,trades,win_%,PF,total_%,CAGR_%,max_dd_%,calmar,thin
+NIFTY Smallcap 50,1d,10% / 20%,Core Supertrend only,OFF,False,281,53.7,1.89,117.8,29.7,-13.2,2.25,False
+Midcap/Smallcap 150,1d,8% / 16%,Trend-only (ST+EMA),OFF,False,313,55.6,1.83,102.0,26.5,-11.8,2.23,False
+Midcap/Smallcap 150,1d,12% / 24%,Trend-only (ST+EMA),OFF,False,216,58.8,2.07,100.6,26.2,-12.2,2.14,False
+NIFTY Smallcap 50,1d,12% / 24%,Core Supertrend only,OFF,False,232,56.0,1.95,109.2,27.9,-13.2,2.12,False
+Midcap/Smallcap 150,1d,10% / 20%,Momentum (RSI+ADX+MACD),OFF,False,254,55.1,1.8,92.3,24.4,-11.7,2.08,False
+NIFTY Smallcap 50,1d,12% / 24%,Volume+OBV breakout,OFF,False,206,57.8,1.95,92.1,24.3,-12.6,1.93,False
+Midcap/Smallcap 150,1d,5% / 10%,Trend-only (ST+EMA),OFF,False,640,49.7,1.38,81.7,22.1,-11.5,1.93,False
+Midcap/Smallcap 150,1d,10% / 20%,Trend-only (ST+EMA),OFF,False,251,56.6,1.93,99.5,25.9,-13.8,1.88,False
+NIFTY Smallcap 50,1d,12% / 24%,+EMA200 long trend,OFF,False,178,56.2,1.77,70.4,19.5,-10.4,1.88,False
+NIFTY Smallcap 50,1d,12% / 24%,Trend-only (ST+EMA),OFF,False,229,57.6,1.87,100.4,26.1,-14.2,1.84,False
+NIFTY Smallcap 50,1d,8% / 16%,Core Supertrend only,OFF,False,382,51.6,1.61,105.2,27.1,-15.1,1.8,False
+NIFTY Midcap 50,1d,12% / 24%,Core Supertrend only,OFF,False,188,60.6,2.23,81.3,22.0,-12.7,1.73,False
+NIFTY Smallcap 50,1d,12% / 24%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,179,54.7,1.66,62.4,17.6,-11.0,1.6,False
+Midcap/Smallcap 150,1d,12% / 24%,Momentum (RSI+ADX+MACD),OFF,False,210,57.1,1.93,86.4,23.1,-14.6,1.58,False
+NIFTY Midcap 50,1d,10% / 20%,Core Supertrend only,OFF,False,215,55.3,1.84,70.6,19.5,-13.2,1.48,False
+NIFTY Smallcap 50,1d,8% / 16%,Trend-only (ST+EMA),OFF,False,375,52.8,1.54,95.4,25.1,-17.3,1.45,False
+NIFTY Smallcap 50,1d,8% / 16%,Volume+OBV breakout,OFF,False,300,51.7,1.5,68.7,19.1,-13.5,1.42,False
+Midcap/Smallcap 150,1d,8% / 16%,Core Supertrend only,OFF,False,340,52.6,1.59,88.1,23.5,-16.7,1.41,False
+Midcap/Smallcap 150,1d,10% / 20%,Core Supertrend only,OFF,False,260,53.5,1.72,87.4,23.3,-18.9,1.23,False
+Midcap/Smallcap 150,1d,12% / 24%,Core Supertrend only,OFF,False,220,55.9,1.84,87.6,23.4,-19.7,1.19,False
+Midcap/Smallcap 150,1d,8% / 16%,Volume+OBV breakout,OFF,False,300,52.3,1.55,70.0,19.4,-16.6,1.17,False
+NIFTY Midcap 50,1d,10% / 20%,Trend-only (ST+EMA),OFF,False,207,56.0,1.78,64.4,18.1,-15.4,1.17,False
+Midcap/Smallcap 150,1d,8% / 16%,Momentum (RSI+ADX+MACD),OFF,False,308,51.6,1.54,72.4,19.9,-17.2,1.16,False
+NIFTY Smallcap 50,1d,10% / 20%,Trend-only (ST+EMA),OFF,False,286,53.1,1.74,106.4,27.4,-24.7,1.11,False
+NIFTY Smallcap 50,1d,12% / 24%,+MACD momentum,OFF,False,172,51.2,1.46,45.5,13.3,-12.0,1.11,False
+Midcap/Smallcap 150,1d,5% / 10%,Momentum (RSI+ADX+MACD),OFF,False,620,48.1,1.28,60.3,17.1,-15.5,1.1,False
+NIFTY Smallcap 50,1d,12% / 24%,Momentum (RSI+ADX+MACD),OFF,False,226,50.9,1.58,72.2,19.9,-18.4,1.08,False
+NIFTY Smallcap 50,1d,10% / 20%,Volume+OBV breakout,OFF,False,245,51.8,1.51,64.6,18.1,-17.0,1.07,False
+NIFTY Midcap 50,1d,12% / 24%,Trend-only (ST+EMA),OFF,False,184,60.9,1.85,60.6,17.1,-16.3,1.05,False
+Midcap/Smallcap 150,1d,12% / 24%,+EMA200 long trend,OFF,False,196,55.1,1.59,55.0,15.7,-15.0,1.05,False
+NIFTY Midcap 50,1d,10% / 20%,+Weekly Supertrend,OFF,False,154,53.9,1.56,38.2,11.4,-11.6,0.98,False
+NIFTY Midcap 50,1d,10% / 20%,Momentum (RSI+ADX+MACD),OFF,False,214,52.8,1.64,59.9,17.0,-17.9,0.95,False
+Midcap/Smallcap 150,1d,5% / 10%,Core Supertrend only,OFF,False,697,47.5,1.25,60.1,17.0,-18.1,0.94,False
+NIFTY Midcap 50,1d,8% / 16%,Momentum (RSI+ADX+MACD),OFF,False,256,52.3,1.49,52.9,15.2,-16.2,0.94,False
+NIFTY Midcap 50,1d,12% / 24%,Momentum (RSI+ADX+MACD),OFF,False,189,56.1,1.63,56.0,16.0,-17.3,0.93,False
+NIFTY Midcap 50,1d,8% / 16%,Core Supertrend only,OFF,False,256,51.2,1.54,55.2,15.8,-17.6,0.9,False
+NIFTY Smallcap 50,1d,10% / 20%,Momentum (RSI+ADX+MACD),OFF,False,256,48.8,1.37,51.5,14.9,-16.5,0.9,False
+NIFTY Smallcap 50,1d,10% / 20%,+EMA200 long trend,OFF,False,202,48.5,1.39,42.4,12.5,-14.0,0.89,False
+NIFTY Smallcap 50,1d,5% / 10%,Trend-only (ST+EMA),OFF,False,696,47.7,1.22,56.9,16.2,-18.5,0.88,False
+Midcap/Smallcap 150,1d,8% / 16%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,281,50.9,1.46,56.0,16.0,-18.1,0.88,False
+NIFTY Midcap 50,1d,8% / 16%,Volume+OBV breakout,OFF,False,210,49.5,1.39,34.3,10.4,-11.9,0.87,False
+NIFTY Midcap 50,1d,5% / 10%,Momentum (RSI+ADX+MACD),OFF,False,414,48.8,1.31,42.5,12.6,-14.6,0.86,False
+Midcap/Smallcap 150,1d,10% / 20%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,227,53.3,1.55,57.6,16.4,-19.4,0.84,False
+NIFTY Midcap 50,1d,8% / 16%,Trend-only (ST+EMA),OFF,False,258,51.9,1.46,48.9,14.2,-17.4,0.82,False
+NIFTY Smallcap 50,1d,8% / 16%,Momentum (RSI+ADX+MACD),OFF,False,328,47.0,1.27,45.7,13.4,-16.5,0.81,False
+NIFTY Midcap 50,1d,5% / 10%,Trend-only (ST+EMA),OFF,False,453,47.5,1.27,40.4,12.0,-14.9,0.81,False
+NIFTY Midcap 50,1d,8% / 16%,+MACD momentum,OFF,False,193,49.7,1.36,30.6,9.3,-11.9,0.79,False
+Midcap/Smallcap 150,1d,12% / 24%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,202,54.5,1.53,53.5,15.4,-19.8,0.78,False
+NIFTY Smallcap 50,1d,10% / 20%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,196,48.5,1.36,38.2,11.4,-14.9,0.77,False
+Midcap/Smallcap 150,1d,10% / 20%,+EMA200 long trend,OFF,False,224,52.2,1.49,53.1,15.3,-20.3,0.75,False
+NIFTY Midcap 50,1d,10% / 20%,Volume+OBV breakout,OFF,False,188,50.5,1.33,30.0,9.2,-12.4,0.74,False
+NIFTY Midcap 50,1d,5% / 10%,Core Supertrend only,OFF,False,484,46.7,1.27,43.0,12.7,-17.6,0.72,False
+NIFTY Midcap 50,1d,12% / 24%,+Weekly Supertrend,OFF,False,146,52.7,1.41,30.0,9.2,-12.8,0.71,False
+NIFTY Midcap 50,1d,8% / 16%,+Weekly Supertrend,OFF,False,177,50.8,1.37,28.6,8.8,-12.3,0.71,False
+Midcap/Smallcap 150,1d,12% / 24%,Volume+OBV breakout,OFF,False,214,53.3,1.43,47.1,13.7,-20.9,0.66,False
+Midcap/Smallcap 150,1d,8% / 16%,+EMA200 long trend,OFF,False,285,50.2,1.37,47.1,13.8,-21.5,0.64,False
+NIFTY Midcap 50,1d,12% / 24%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,159,53.5,1.45,35.5,10.7,-16.9,0.63,False
+Midcap/Smallcap 150,1d,10% / 20%,+Weekly Supertrend,OFF,False,221,50.2,1.45,48.5,14.1,-23.4,0.6,False
+Midcap/Smallcap 150,1d,12% / 24%,+Weekly Supertrend,OFF,False,201,50.7,1.39,42.8,12.6,-21.4,0.59,False
+NIFTY Midcap 50,1d,12% / 24%,+MACD momentum,OFF,False,151,53.6,1.45,33.2,10.0,-17.0,0.59,False
+Midcap/Smallcap 150,1d,8% / 16%,+Weekly Supertrend,OFF,False,276,48.6,1.27,34.4,10.4,-18.1,0.57,False
+NIFTY Midcap 50,1d,12% / 24%,+EMA200 long trend,OFF,False,158,53.2,1.42,33.2,10.0,-17.8,0.57,False
+NIFTY Midcap 50,1d,10% / 20%,+MACD momentum,OFF,False,163,51.5,1.41,30.5,9.3,-16.2,0.57,False
+NIFTY Smallcap 50,1d,5% / 10%,Core Supertrend only,OFF,False,785,46.8,1.15,44.5,13.1,-23.4,0.56,False
+NIFTY Smallcap 50,1d,10% / 20%,+Weekly Supertrend,OFF,False,190,46.8,1.28,28.8,8.8,-15.9,0.56,False
+NIFTY Midcap 50,1d,5% / 10%,Volume+OBV breakout,OFF,False,372,46.2,1.15,19.3,6.1,-11.0,0.55,False
+NIFTY Midcap 50,1d,10% / 20%,+EMA200 long trend,OFF,False,171,51.5,1.33,27.2,8.4,-16.5,0.51,False
+NIFTY Smallcap 50,1d,12% / 24%,+Weekly Supertrend,OFF,False,167,50.3,1.32,31.2,9.5,-19.7,0.48,False
+NIFTY Midcap 50,1d,10% / 20%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,175,49.7,1.3,25.8,8.0,-16.7,0.48,False
+NIFTY Midcap 50,1d,8% / 16%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,196,48.5,1.24,21.5,6.7,-14.0,0.48,False
+NIFTY Smallcap 50,1d,10% / 20%,+MACD momentum,OFF,False,193,46.6,1.23,25.1,7.8,-16.9,0.46,False
+Midcap/Smallcap 150,1d,10% / 20%,+MACD momentum,OFF,False,236,48.7,1.3,38.0,11.4,-25.2,0.45,False
+NIFTY Midcap 50,1d,8% / 16%,+EMA200 long trend,OFF,False,194,47.9,1.21,19.2,6.1,-14.4,0.42,False
+Midcap/Smallcap 150,1d,10% / 20%,Volume+OBV breakout,OFF,False,242,49.6,1.3,35.6,10.7,-26.3,0.41,False
+Midcap/Smallcap 150,1d,5% / 10%,Volume+OBV breakout,OFF,False,559,46.0,1.14,27.5,8.4,-22.4,0.38,False
+NIFTY Midcap 50,1d,12% / 24%,Volume+OBV breakout,OFF,False,174,47.1,1.15,14.4,4.6,-14.8,0.31,False
+Midcap/Smallcap 150,1d,12% / 24%,+MACD momentum,OFF,False,207,47.8,1.23,27.9,8.6,-28.2,0.3,False
+Midcap/Smallcap 150,1d,8% / 16%,+MACD momentum,OFF,False,272,46.0,1.15,20.0,6.3,-21.7,0.29,False
+NIFTY Midcap 50,1d,5% / 10%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,286,44.8,1.09,8.9,2.9,-10.8,0.27,False
+NIFTY Smallcap 50,1d,5% / 10%,Momentum (RSI+ADX+MACD),OFF,False,610,44.3,1.09,21.1,6.6,-26.0,0.25,False
+NIFTY Midcap 50,1d,5% / 10%,+EMA200 long trend,OFF,False,284,44.4,1.08,8.1,2.6,-10.8,0.24,False
+NIFTY Midcap 50,1d,5% / 10%,+Weekly Supertrend,OFF,False,259,45.2,1.09,7.7,2.5,-10.8,0.23,False
+NIFTY Midcap 50,1d,5% / 10%,+MACD momentum,OFF,False,260,44.2,1.08,7.1,2.3,-11.7,0.2,False
+NIFTY Smallcap 50,1d,8% / 16%,+EMA200 long trend,OFF,False,241,44.4,1.09,10.4,3.4,-22.2,0.15,False
+Midcap/Smallcap 150,1d,5% / 10%,+MACD momentum,OFF,False,472,44.7,1.06,10.6,3.4,-22.4,0.15,False
+NIFTY Smallcap 50,1d,8% / 16%,+MACD momentum,OFF,False,231,43.7,1.08,9.3,3.0,-23.1,0.13,False
+NIFTY Smallcap 50,1d,8% / 16%,+Weekly Supertrend,OFF,False,229,45.0,1.08,8.9,2.9,-22.2,0.13,False
+Midcap/Smallcap 150,1d,5% / 10%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,481,44.7,1.04,7.5,2.5,-24.0,0.1,False
+Midcap/Smallcap 150,1d,5% / 10%,+Weekly Supertrend,OFF,False,474,44.1,1.01,2.6,0.9,-24.6,0.04,False
+NIFTY Smallcap 50,1d,8% / 16%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,240,42.5,1.0,0.6,0.2,-25.1,0.01,False
+Midcap/Smallcap 150,1d,5% / 10%,+EMA200 long trend,OFF,False,477,43.6,0.99,-0.7,-0.2,-26.3,-0.01,False
+NIFTY Smallcap 50,1d,5% / 10%,Volume+OBV breakout,OFF,False,508,43.7,0.97,-4.4,-1.5,-29.6,-0.05,False
+NIFTY Smallcap 50,1d,5% / 10%,+Weekly Supertrend,OFF,False,314,42.4,0.89,-12.0,-4.2,-29.9,-0.14,False
+NIFTY Smallcap 50,1d,5% / 10%,+EMA200 long trend,OFF,False,357,41.2,0.87,-15.6,-5.5,-29.4,-0.19,False
+NIFTY Smallcap 50,1d,5% / 10%,+MACD momentum,OFF,False,352,40.9,0.86,-16.4,-5.8,-28.5,-0.2,False
+NIFTY Smallcap 50,1d,5% / 10%,Baseline (ST+EMA+RSI+ADX+Vol+OBV+BO),OFF,False,364,40.4,0.85,-18.5,-6.6,-31.2,-0.21,False

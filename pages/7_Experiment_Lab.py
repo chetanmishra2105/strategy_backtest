@@ -1,9 +1,17 @@
-"""Experiment Lab — one-button grid search over Supertrend combinations.
+"""Experiment Lab — one-button grid search over a chosen strategy's combinations.
 
-Sweeps universe × timeframe × stop/target × indicator preset × gates(on/off),
-runs each through the SAME funnel + ₹ portfolio engine as the Backtest Lab, and
-ranks the results by risk-adjusted Calmar (CAGR ÷ |max drawdown|). The goal:
-find, systematically, which combination actually works — instead of guessing.
+Pick a **strategy** at the top, then sweep its parameter grid:
+
+  * **Supertrend Sector Momentum** — universe × timeframe × stop/target ×
+    indicator preset × gates(on/off), each run through the SAME funnel + ₹
+    portfolio engine as the Backtest Lab.
+  * **Cross-sectional Momentum** — universe × lookback × hold-count × rebalance ×
+    layer-config, each run through the SAME walk-forward (out-of-sample) harness
+    as the Momentum Lab.
+
+Both rank by risk-adjusted Calmar (CAGR ÷ |max drawdown|) with a min-trades floor,
+and the winning combo per strategy is logged to ``benchmark/benchmark.md`` (it
+only overwrites when a new run beats the previous best CAGR).
 """
 
 from __future__ import annotations
@@ -11,12 +19,169 @@ from __future__ import annotations
 import pandas as pd
 import streamlit as st
 
-from nsewing import charts, experiments as ex, ui
+from nsewing import benchmark as bm, charts, experiments as ex
+from nsewing import momentum_experiments as mex, ui
 
 st.set_page_config(page_title="Experiment Lab", page_icon="🧪", layout="wide")
-ui.sidebar_controls()  # keep the global sidebar; this page uses its own axes
+settings = ui.sidebar_controls()  # keep the global sidebar; this page uses its own axes
 
-st.title("🧪 Experiment Lab — find the best Supertrend combination")
+st.title("🧪 Experiment Lab — find the best combination")
+
+# --------------------------------------------------------------------------
+# Strategy selector — drives which grid appears below.
+# --------------------------------------------------------------------------
+strategy = st.selectbox(
+    "Strategy to sweep",
+    [ex.STRATEGY, mex.STRATEGY],
+    help="Pick which strategy's parameter combinations to grid-search. Each "
+         "strategy has its own axes but the same ranking + benchmark logging.")
+
+# ==========================================================================
+# MOMENTUM BRANCH — cross-sectional momentum grid (walk-forward, OOS).
+# Kept fully separate from the Supertrend code below (which is untouched).
+# ==========================================================================
+if strategy == mex.STRATEGY:
+    st.caption("Sweeps momentum permutations and ranks them by **risk-adjusted return "
+               "(Calmar = CAGR ÷ |max drawdown|)**. Each combination runs through the exact same "
+               "**walk-forward, out-of-sample** harness as the Momentum Lab, so every number is "
+               "what a live trader would actually have earned — not a curve fit to the past.")
+
+    with st.expander("ℹ️ How each combo is scored (read me)", expanded=False):
+        st.markdown(
+            "- **Every number is out-of-sample.** Each combination runs the full walk-forward "
+            "harness (9-month train / 3-month test folds, rolled forward); the reported CAGR / "
+            "drawdown are stitched from the **test windows only**.\n"
+            "- **Fixed while sweeping:** 12-1 skip (skip most-recent month), the 200-DMA trend "
+            "filter, a 3-state HMM, and a 5-year history window — so combos compare fairly. The "
+            "swept axes are the ones below.\n"
+            "- **Layers axis** is the momentum analogue of gates: *Momentum only* → *+HMM regime "
+            "filter* → *+HMM + vol-scaled sizing* (the same ablation ladder as the Momentum Lab).\n"
+            "- **Slower than the Supertrend grid** — each combo runs many folds. Trim axes to keep "
+            "run time sane.")
+
+    st.divider()
+    st.subheader("① Choose what to sweep")
+    st.caption("Defaults are a balanced grid. Trim axes to run faster, or add to be exhaustive.")
+
+    dm = mex.DEFAULT_AXES
+    m1, m2 = st.columns(2)
+    m_universes = m1.multiselect("Universes", mex.UNIVERSE_NAMES, default=dm["universes"])
+    m_layers = m2.multiselect("Layer configs (momentum → +regime → +vol sizing)",
+                              list(mex.LAYER_CONFIGS.keys()), default=dm["layers"])
+    m_lookbacks = st.multiselect("Momentum lookback (months)", mex.LOOKBACK_MONTHS,
+                                 default=dm["lookbacks"])
+    m_topns = st.multiselect("Hold top-N stocks", mex.TOP_N_CHOICES, default=dm["top_ns"])
+    m_rebs = st.multiselect("Rebalance frequency", list(mex.REBALANCE_MODES.keys()),
+                            default=dm["rebalances"])
+
+    m_min_trades = st.slider("Minimum trades to rank a combo (thin combos are flagged & pushed down)",
+                             5, 60, 20, 5, key="mom_min_trades")
+
+    m_axes = dict(universes=m_universes, lookbacks=m_lookbacks, top_ns=m_topns,
+                  rebalances=m_rebs, layers=m_layers)
+    m_valid = all(m_axes.values())
+    m_n = mex.count_combos(m_axes) if m_valid else 0
+    # Walk-forward is heavier than the Supertrend single-pass: ~4-8s per combo.
+    m_est = m_n * 6.0 / 60.0
+    if not m_valid:
+        st.warning("Pick at least one option in every axis.")
+    else:
+        st.info(f"**≈ {m_n} combinations** to run  ·  rough estimate **{m_est:.1f}–{m_est*1.8:.1f} min** "
+                "(walk-forward runs many folds per combo; first run downloads/caches data).")
+
+    m_run = st.button("② Run experiment grid", type="primary", disabled=not m_valid)
+
+    if m_run:
+        grid = mex.build_grid(m_axes)
+        bar = st.progress(0.0, text=f"Running 0 / {len(grid)} combinations…")
+
+        def _mcb(done, total):
+            bar.progress(done / total, text=f"Running {done} / {total} combinations…")
+
+        with st.spinner("Simulating every combination through the walk-forward harness…"):
+            m_res = mex.run_grid(grid, progress_cb=_mcb)
+        bar.empty()
+        st.session_state["mex_results"] = m_res
+        st.session_state["mex_min_trades"] = m_min_trades
+
+    if "mex_results" in st.session_state:
+        m_res = st.session_state["mex_results"]
+        mt = st.session_state.get("mex_min_trades", m_min_trades)
+        ranked = mex.rank(m_res, min_trades=mt)
+
+        if ranked is None or ranked.empty:
+            st.warning("No results.")
+            st.stop()
+
+        st.divider()
+        st.subheader("🏆 Best combination (risk-adjusted, out-of-sample)")
+        non_thin = ranked[~ranked["thin"]]
+        best = (non_thin.iloc[0] if not non_thin.empty else ranked.iloc[0])
+        k = st.columns(5)
+        k[0].metric("OOS CAGR", f"{best['CAGR_%']:+.1f}%")
+        k[1].metric("Calmar", f"{best['calmar']:.2f}")
+        k[2].metric("Sharpe", f"{best['sharpe']:.2f}")
+        k[3].metric("Max drawdown", f"{best['max_dd_%']:.1f}%")
+        k[4].metric("Trades", int(best["trades"]))
+        st.markdown(
+            f"**{best['layer']}** on **{best['universe']}**, lookback "
+            f"**{best['lookback_m']}mo**, hold top **{int(best['top_n'])}**, "
+            f"**{best['rebalance']}** rebalance.")
+
+        # --- Log the champion to benchmark/benchmark.md (all-time best) -------
+        best_params = dict(
+            universe=best["universe"], lookback_m=int(best["lookback_m"]),
+            top_n=int(best["top_n"]), rebalance=best["rebalance"], layer=best["layer"])
+        best_metrics = dict(calmar=float(best["calmar"]), max_dd_pct=float(best["max_dd_%"]),
+                            sharpe=float(best["sharpe"]), trades=int(best["trades"]))
+        status = bm.update_best(
+            mex.STRATEGY, best["CAGR_%"] / 100.0, best_params,
+            metrics={"calmar": float(best["calmar"]), "max_dd_%": float(best["max_dd_%"]),
+                     "sharpe": float(best["sharpe"]), "trades": int(best["trades"])},
+            when=str(pd.Timestamp.today().date()))
+        if status["updated"]:
+            prev = status["previous_cagr"]
+            prev_txt = f" (beat previous {prev*100:+.1f}%)" if prev is not None else " (first record)"
+            st.success(f"🏅 New benchmark for **{mex.STRATEGY}**: {best['CAGR_%']:+.1f}% CAGR"
+                       f"{prev_txt} — logged to `benchmark/benchmark.md`.")
+        else:
+            st.caption(f"Benchmark unchanged — the all-time best for {mex.STRATEGY} "
+                       f"({status['previous_cagr']*100:+.1f}% CAGR) still stands.")
+
+        st.subheader("Top 15 combinations")
+        show_cols = ["universe", "lookback_m", "top_n", "rebalance", "layer",
+                     "trades", "win_%", "total_%", "CAGR_%", "max_dd_%",
+                     "sharpe", "calmar", "thin"]
+        show_cols = [c for c in show_cols if c in ranked.columns]
+        st.dataframe(ranked[show_cols].head(15), use_container_width=True, hide_index=True)
+
+        st.subheader("Heatmap")
+        hc = st.columns(3)
+        metric = hc[0].selectbox("Colour by", ["CAGR_%", "calmar", "sharpe", "total_%"], index=0)
+        row_ax = hc[1].selectbox("Rows", ["layer", "universe", "lookback_m", "top_n", "rebalance"], index=0)
+        col_ax = hc[2].selectbox("Columns", ["universe", "lookback_m", "top_n", "rebalance", "layer"], index=0)
+        if row_ax != col_ax:
+            piv = m_res.pivot_table(index=row_ax, columns=col_ax, values=metric, aggfunc="mean")
+            st.plotly_chart(charts.performance_heatmap(piv, f"Mean {metric} by {row_ax} × {col_ax}"),
+                            use_container_width=True)
+        else:
+            st.caption("Pick different Rows and Columns to draw the heatmap.")
+
+        st.subheader("Full results")
+        st.dataframe(ranked[show_cols], use_container_width=True, hide_index=True)
+        st.download_button("⬇️ Download results as CSV",
+                           ranked.to_csv(index=False).encode("utf-8"),
+                           file_name="momentum_experiment_results.csv", mime="text/csv")
+
+        st.caption("**How to read this:** prefer high **Calmar** (return per unit of drawdown) among "
+                   "rows with enough **trades**. Because every number here is out-of-sample, a modest "
+                   "best combo is the honest ceiling of momentum on these universes — not a bug.")
+
+    st.stop()  # ← momentum branch ends here; Supertrend code below is untouched.
+
+# ==========================================================================
+# SUPERTREND BRANCH — the original grid (unchanged).
+# ==========================================================================
 st.caption("Sweeps many permutations of the Supertrend strategy and ranks them by **risk-adjusted "
            "return (Calmar = CAGR ÷ |max drawdown|)**. Each combination runs through the exact same "
            "funnel + ₹ portfolio backtest as the Backtest Lab, so the numbers are consistent.")
@@ -122,6 +287,28 @@ if "ex_results" in st.session_state:
             f"({cb['interval']}), {cb['bracket']} → **{cb['CAGR_%']:+.1f}% CAGR**, "
             f"Calmar {cb['calmar']:.2f}, PF {cb['PF']:.2f}, DD {cb['max_dd_%']:.1f}%, "
             f"{int(cb['trades'])} trades. This is the number to trust.")
+
+    # --- Log the champion to benchmark/benchmark.md (all-time best) -----------
+    # Prefer the clean (point-in-time) combo as the honest benchmark; fall back
+    # to the best overall combo if every row used the fundamentals leak.
+    champ = clean.iloc[0] if not clean.empty else best
+    champ_params = dict(
+        universe=champ["universe"], interval=champ["interval"], bracket=champ["bracket"],
+        preset=champ["preset"], gates=champ["gates"])
+    status = bm.update_best(
+        ex.STRATEGY, champ["CAGR_%"] / 100.0, champ_params,
+        metrics={"calmar": float(champ["calmar"]), "max_dd_%": float(champ["max_dd_%"]),
+                 "PF": float(champ["PF"]), "trades": int(champ["trades"]),
+                 "clean": bool(not champ["fundamental_leak"])},
+        when=str(pd.Timestamp.today().date()))
+    if status["updated"]:
+        prev = status["previous_cagr"]
+        prev_txt = f" (beat previous {prev*100:+.1f}%)" if prev is not None else " (first record)"
+        st.success(f"🏅 New benchmark for **{ex.STRATEGY}**: {champ['CAGR_%']:+.1f}% CAGR"
+                   f"{prev_txt} — logged to `benchmark/benchmark.md`.")
+    else:
+        st.caption(f"Benchmark unchanged — the all-time best for {ex.STRATEGY} "
+                   f"({status['previous_cagr']*100:+.1f}% CAGR) still stands.")
 
     st.subheader("Top 15 combinations")
     show_cols = ["universe", "interval", "bracket", "preset", "gates",

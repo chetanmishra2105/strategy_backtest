@@ -1,0 +1,73 @@
+universe,lookback_m,top_n,rebalance,layer,trades,win_%,total_%,CAGR_%,max_dd_%,sharpe,calmar,thin
+Midcap/Smallcap 150,6,12,Monthly,+ HMM + vol-scaled sizing,367,47.4,250.5,34.4,-13.8,1.74,2.49,False
+Midcap/Smallcap 150,12,8,Monthly,+ HMM + vol-scaled sizing,229,50.2,231.7,32.6,-13.8,1.56,2.36,False
+Midcap/Smallcap 150,12,12,Monthly,+ HMM + vol-scaled sizing,324,50.3,218.0,31.3,-13.5,1.6,2.32,False
+Midcap/Smallcap 150,6,12,Monthly,+ HMM regime filter,367,47.4,242.6,33.6,-14.6,1.66,2.3,False
+Midcap/Smallcap 150,12,12,Monthly,+ HMM regime filter,324,50.3,200.7,29.6,-14.3,1.49,2.07,False
+Midcap/Smallcap 150,6,8,Monthly,+ HMM regime filter,253,47.0,279.5,36.9,-18.1,1.67,2.04,False
+Midcap/Smallcap 150,6,8,Monthly,+ HMM + vol-scaled sizing,253,47.0,272.1,36.3,-17.8,1.69,2.04,False
+NIFTY Midcap 50,6,8,Monthly,+ HMM regime filter,226,48.2,172.7,26.7,-13.4,1.46,1.98,False
+Midcap/Smallcap 150,12,8,Monthly,+ HMM regime filter,229,50.2,204.8,30.0,-15.5,1.43,1.94,False
+NIFTY Midcap 50,6,8,Monthly,+ HMM + vol-scaled sizing,226,48.2,154.9,24.7,-13.4,1.42,1.84,False
+Midcap/Smallcap 150,6,12,Monthly,Momentum only,430,47.0,224.0,31.9,-18.0,1.35,1.77,False
+NIFTY Smallcap 50,6,8,Monthly,Momentum only,259,49.0,253.7,34.6,-19.8,1.34,1.75,False
+NIFTY Smallcap 50,6,12,Monthly,+ HMM regime filter,308,48.7,219.2,31.4,-18.2,1.6,1.73,False
+NIFTY Smallcap 50,12,12,Monthly,Momentum only,311,53.1,230.7,32.5,-19.0,1.4,1.71,False
+NIFTY Midcap 50,6,12,Monthly,+ HMM regime filter,318,45.3,134.8,22.3,-13.0,1.34,1.71,False
+NIFTY Smallcap 50,6,12,Monthly,+ HMM + vol-scaled sizing,308,48.7,200.3,29.6,-17.4,1.57,1.7,False
+NIFTY Smallcap 50,6,8,Monthly,+ HMM + vol-scaled sizing,228,47.4,220.8,31.6,-18.7,1.52,1.69,False
+NIFTY Smallcap 50,12,8,Monthly,Momentum only,223,53.4,238.7,33.3,-20.1,1.34,1.66,False
+NIFTY Smallcap 50,6,8,Monthly,+ HMM regime filter,228,47.4,234.1,32.9,-19.8,1.54,1.66,False
+NIFTY Midcap 50,6,12,Monthly,+ HMM + vol-scaled sizing,318,45.3,123.6,20.9,-12.7,1.31,1.65,False
+NIFTY Smallcap 50,12,12,Monthly,+ HMM + vol-scaled sizing,288,50.7,195.8,29.1,-18.0,1.58,1.62,False
+NIFTY Smallcap 50,12,8,Monthly,+ HMM + vol-scaled sizing,204,50.5,195.1,29.0,-18.0,1.47,1.62,False
+NIFTY Midcap 50,12,8,Monthly,+ HMM + vol-scaled sizing,201,45.3,123.8,20.9,-13.0,1.24,1.61,False
+NIFTY Midcap 50,12,8,Monthly,+ HMM regime filter,201,45.3,136.2,22.4,-14.1,1.26,1.59,False
+NIFTY Smallcap 50,12,12,Monthly,+ HMM regime filter,288,50.7,199.8,29.5,-19.0,1.55,1.55,False
+NIFTY Smallcap 50,6,12,Monthly,Momentum only,348,49.4,226.8,32.2,-21.5,1.38,1.5,False
+NIFTY Smallcap 50,12,8,Monthly,+ HMM regime filter,204,50.5,186.0,28.1,-19.1,1.4,1.47,False
+Midcap/Smallcap 150,6,8,Monthly,Momentum only,302,45.4,238.8,33.3,-23.8,1.29,1.4,False
+Midcap/Smallcap 150,12,8,Monthly,Momentum only,262,50.4,203.4,29.9,-22.0,1.21,1.36,False
+NIFTY Midcap 50,12,12,Monthly,+ HMM regime filter,289,45.3,126.1,21.2,-15.8,1.28,1.34,False
+NIFTY Midcap 50,12,12,Monthly,+ HMM + vol-scaled sizing,289,45.3,115.3,19.8,-15.2,1.26,1.31,False
+Midcap/Smallcap 150,12,12,Monthly,Momentum only,365,50.1,176.9,27.1,-21.3,1.19,1.27,False
+NIFTY Midcap 50,6,8,Quarterly,+ HMM regime filter,158,41.8,104.2,18.3,-15.3,1.5,1.19,False
+NIFTY Midcap 50,6,8,Quarterly,+ HMM + vol-scaled sizing,158,41.8,100.8,17.8,-15.7,1.52,1.14,False
+NIFTY Smallcap 50,12,12,Quarterly,+ HMM regime filter,213,40.8,90.6,16.4,-14.9,1.25,1.1,False
+Midcap/Smallcap 150,12,12,Quarterly,+ HMM + vol-scaled sizing,234,41.5,87.8,16.0,-14.6,1.22,1.09,False
+NIFTY Midcap 50,6,12,Quarterly,+ HMM regime filter,229,38.0,73.3,13.8,-12.9,1.25,1.08,False
+Midcap/Smallcap 150,12,12,Quarterly,+ HMM regime filter,234,41.5,87.3,15.9,-15.0,1.19,1.06,False
+NIFTY Midcap 50,6,8,Monthly,Momentum only,265,44.5,121.6,20.6,-19.7,1.03,1.05,False
+NIFTY Smallcap 50,12,8,Quarterly,+ HMM regime filter,149,43.6,88.0,16.0,-15.9,1.13,1.01,False
+NIFTY Smallcap 50,12,8,Quarterly,+ HMM + vol-scaled sizing,149,43.6,86.0,15.7,-15.6,1.14,1.01,False
+NIFTY Smallcap 50,12,12,Quarterly,+ HMM + vol-scaled sizing,213,40.8,87.2,15.9,-16.0,1.25,1.0,False
+NIFTY Midcap 50,12,8,Quarterly,+ HMM regime filter,153,37.9,66.4,12.7,-12.8,1.12,1.0,False
+Midcap/Smallcap 150,6,12,Quarterly,+ HMM + vol-scaled sizing,247,38.1,92.5,16.7,-16.8,1.28,0.99,False
+NIFTY Midcap 50,6,12,Quarterly,+ HMM + vol-scaled sizing,229,38.0,67.1,12.9,-13.2,1.21,0.97,False
+Midcap/Smallcap 150,6,12,Quarterly,+ HMM regime filter,247,38.1,97.5,17.4,-18.1,1.29,0.96,False
+NIFTY Smallcap 50,6,8,Quarterly,+ HMM regime filter,161,40.4,118.4,20.2,-21.6,1.35,0.94,False
+NIFTY Midcap 50,12,8,Quarterly,+ HMM + vol-scaled sizing,153,37.9,61.2,11.9,-12.7,1.1,0.94,False
+Midcap/Smallcap 150,12,8,Quarterly,+ HMM + vol-scaled sizing,162,40.1,89.1,16.2,-17.8,1.16,0.91,False
+NIFTY Smallcap 50,6,8,Quarterly,+ HMM + vol-scaled sizing,161,40.4,112.2,19.4,-21.5,1.34,0.9,False
+Midcap/Smallcap 150,6,8,Quarterly,+ HMM regime filter,169,37.3,100.1,17.7,-19.7,1.26,0.9,False
+Midcap/Smallcap 150,6,8,Quarterly,+ HMM + vol-scaled sizing,169,37.3,97.1,17.3,-19.9,1.27,0.87,False
+Midcap/Smallcap 150,12,8,Quarterly,+ HMM regime filter,162,40.1,88.3,16.1,-18.4,1.14,0.87,False
+NIFTY Smallcap 50,6,12,Quarterly,+ HMM regime filter,222,40.5,122.6,20.7,-24.0,1.48,0.86,False
+NIFTY Smallcap 50,12,8,Quarterly,Momentum only,175,48.0,112.1,19.4,-22.6,1.09,0.86,False
+NIFTY Smallcap 50,6,12,Quarterly,+ HMM + vol-scaled sizing,222,40.5,113.1,19.5,-24.3,1.44,0.8,False
+NIFTY Smallcap 50,12,12,Quarterly,Momentum only,251,45.0,107.2,18.7,-23.7,1.14,0.79,False
+NIFTY Midcap 50,12,12,Quarterly,+ HMM regime filter,217,38.2,63.9,12.3,-15.5,1.15,0.79,False
+NIFTY Midcap 50,6,12,Monthly,Momentum only,367,42.5,99.4,17.6,-22.8,0.96,0.77,False
+NIFTY Smallcap 50,6,8,Quarterly,Momentum only,194,41.2,124.5,21.0,-29.1,1.14,0.72,False
+NIFTY Midcap 50,12,8,Monthly,Momentum only,233,44.2,99.1,17.6,-24.4,0.9,0.72,False
+NIFTY Midcap 50,12,12,Monthly,Momentum only,338,43.2,99.1,17.6,-25.9,0.94,0.68,False
+NIFTY Midcap 50,12,12,Quarterly,+ HMM + vol-scaled sizing,217,38.2,55.9,11.0,-16.7,1.08,0.66,False
+NIFTY Smallcap 50,6,12,Quarterly,Momentum only,264,42.8,131.0,21.8,-33.3,1.26,0.65,False
+Midcap/Smallcap 150,12,8,Quarterly,Momentum only,191,42.9,96.7,17.3,-26.8,0.99,0.64,False
+Midcap/Smallcap 150,6,8,Quarterly,Momentum only,206,37.4,97.8,17.4,-29.7,1.01,0.59,False
+Midcap/Smallcap 150,6,12,Quarterly,Momentum only,299,37.8,90.7,16.4,-28.4,1.01,0.58,False
+Midcap/Smallcap 150,12,12,Quarterly,Momentum only,279,42.3,80.1,14.9,-28.1,0.92,0.53,False
+NIFTY Midcap 50,6,8,Quarterly,Momentum only,191,39.3,73.4,13.8,-31.0,0.95,0.45,False
+NIFTY Midcap 50,6,12,Quarterly,Momentum only,275,36.4,48.3,9.7,-30.6,0.74,0.32,False
+NIFTY Midcap 50,12,12,Quarterly,Momentum only,256,39.1,43.7,8.9,-32.2,0.7,0.28,False
+NIFTY Midcap 50,12,8,Quarterly,Momentum only,180,38.3,39.0,8.1,-31.0,0.61,0.26,False

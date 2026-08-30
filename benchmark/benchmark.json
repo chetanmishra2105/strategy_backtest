@@ -1,0 +1,37 @@
+{
+  "Supertrend Sector Momentum": {
+    "cagr": 0.297,
+    "params": {
+      "universe": "NIFTY Smallcap 50",
+      "interval": "1d",
+      "bracket": "10% / 20%",
+      "preset": "Core Supertrend only",
+      "gates": "OFF"
+    },
+    "metrics": {
+      "calmar": 2.25,
+      "max_dd_%": -13.2,
+      "PF": 1.89,
+      "trades": 281,
+      "clean": true
+    },
+    "updated": "2026-08-22"
+  },
+  "Cross-sectional Momentum": {
+    "cagr": 0.344,
+    "params": {
+      "universe": "Midcap/Smallcap 150",
+      "lookback_m": 6,
+      "top_n": 12,
+      "rebalance": "Monthly",
+      "layer": "+ HMM + vol-scaled sizing"
+    },
+    "metrics": {
+      "calmar": 2.49,
+      "max_dd_%": -13.8,
+      "sharpe": 1.74,
+      "trades": 367
+    },
+    "updated": "2026-08-22"
+  }
+}
